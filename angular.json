@@ -1,0 +1,131 @@
+{
+    "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+    "version": 1,
+    "newProjectRoot": "projects",
+    "projects": {
+        "virb-app": {
+            "projectType": "application",
+            "schematics": {},
+            "root": "",
+            "sourceRoot": "src",
+            "prefix": "app",
+            "architect": {
+                "build": {
+                    "builder": "@angular-devkit/build-angular:browser",
+                    "options": {
+                        "outputPath": "dist/virb-app",
+                        "index": "src/index.html",
+                        "main": "src/main.ts",
+                        "polyfills": "src/polyfills.ts",
+                        "tsConfig": "tsconfig.app.json",
+                        "aot": false,
+                        "assets": [
+                            "src/favicon.ico",
+                            "src/assets"
+                        ],
+                        "styles": [
+                            "src/assets/css/bootstrap.min.css",
+                            "src/assets/css/owl.carousel.min.css",
+                            "src/assets/css/owl.theme.default.min.css",
+                            "src/assets/css/core.css",
+                            "src/assets/css/shortcode/shortcodes.css",
+                            "src/styles.css"
+                        ],
+                        "scripts": [
+                            "src/assets/js/vendor/modernizr-3.5.0.min.js",
+                            "src/assets/js/vendor/jquery-3.2.1.min.js",
+                            "src/assets/js/bootstrap.min.js",
+                            "src/assets/js/plugins.js",
+                            "src/assets/js/slick.min.js",
+                            "src/assets/js/owl.carousel.min.js",
+                            "src/assets/js/waypoints.min.js",
+                            "src/assets/js/main.js"
+                        ]
+                    },
+                    "configurations": {
+                        "production": {
+                            "fileReplacements": [{
+                                "replace": "src/environments/environment.ts",
+                                "with": "src/environments/environment.prod.ts"
+                            }],
+                            "optimization": true,
+                            "outputHashing": "all",
+                            "sourceMap": false,
+                            "extractCss": true,
+                            "namedChunks": false,
+                            "aot": true,
+                            "extractLicenses": true,
+                            "vendorChunk": false,
+                            "buildOptimizer": true,
+                            "budgets": [{
+                                "type": "initial",
+                                "maximumWarning": "2mb",
+                                "maximumError": "5mb"
+                            }]
+                        }
+                    }
+                },
+                "serve": {
+                    "builder": "@angular-devkit/build-angular:dev-server",
+                    "options": {
+                        "browserTarget": "virb-app:build"
+                    },
+                    "configurations": {
+                        "production": {
+                            "browserTarget": "virb-app:build:production"
+                        }
+                    }
+                },
+                "extract-i18n": {
+                    "builder": "@angular-devkit/build-angular:extract-i18n",
+                    "options": {
+                        "browserTarget": "virb-app:build"
+                    }
+                },
+                "test": {
+                    "builder": "@angular-devkit/build-angular:karma",
+                    "options": {
+                        "main": "src/test.ts",
+                        "polyfills": "src/polyfills.ts",
+                        "tsConfig": "tsconfig.spec.json",
+                        "karmaConfig": "karma.conf.js",
+                        "assets": [
+                            "src/favicon.ico",
+                            "src/assets"
+                        ],
+                        "styles": [
+                            "src/styles.css"
+                        ],
+                        "scripts": []
+                    }
+                },
+                "lint": {
+                    "builder": "@angular-devkit/build-angular:tslint",
+                    "options": {
+                        "tsConfig": [
+                            "tsconfig.app.json",
+                            "tsconfig.spec.json",
+                            "e2e/tsconfig.json"
+                        ],
+                        "exclude": [
+                            "**/node_modules/**"
+                        ]
+                    }
+                },
+                "e2e": {
+                    "builder": "@angular-devkit/build-angular:protractor",
+                    "options": {
+                        "protractorConfig": "e2e/protractor.conf.js",
+                        "devServerTarget": "virb-app:serve"
+                    },
+                    "configurations": {
+                        "production": {
+                            "devServerTarget": "virb-app:serve:production"
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "defaultProject": "virb-app"
+}
