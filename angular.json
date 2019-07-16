@@ -32,6 +32,7 @@
                             "src/styles.css"
                         ],
                         "scripts": [
+                            "./node_modules/jquery/dist/jquery.min.js",
                             "src/assets/js/vendor/modernizr-3.5.0.min.js",
                             "src/assets/js/vendor/jquery-3.2.1.min.js",
                             "src/assets/js/bootstrap.min.js",
