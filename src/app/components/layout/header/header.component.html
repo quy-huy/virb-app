@@ -97,7 +97,7 @@
                                         <li><a href="blog-details.html">Blog Details</a></li>
                                     </ul>
                                 </li>
-                                <li class="drop"><a href="#">Pages</a>
+                                <li class="drop"><a [routerLink]="['/']">Pages</a>
                                     <ul class="dropdown">
                                         <li><a href="blog.html">Blog</a></li>
                                         <li><a href="blog-details.html">Blog Details</a></li>
@@ -117,15 +117,15 @@
                             <nav id="mobile_dropdown">
                                 <ul>
                                     <li><a href="index.html">Home</a></li>
-                                    <li><a href="blog.html">blog</a></li>
-                                    <li><a href="#">pages</a>
+                                    <li><a href="/product">Product grid</a></li>
+                                    <li><a [routerLink]="['']">pages</a>
                                         <ul>
                                             <li><a href="blog.html">Blog</a></li>
                                             <li><a href="blog-details.html">Blog Details</a></li>
                                             <li><a href="cart.html">Cart page</a></li>
                                             <li><a href="checkout.html">checkout</a></li>
                                             <li><a href="contact.html">contact</a></li>
-                                            <li><a [routerLink]="[ '/product']">product grid</a></li>
+                                            <li><a href="/product">product grid</a></li>
                                             <li><a href="product-details.html">product details</a></li>
                                             <li><a href="wishlist.html">wishlist</a></li>
                                         </ul>
