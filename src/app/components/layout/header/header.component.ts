@@ -1,4 +1,5 @@
 import { Component, OnInit, ViewChild, ElementRef, AfterViewInit } from '@angular/core';
+import {FormControl} from '@angular/forms'
 declare var $: any;
 @Component({
   selector: 'app-header',
@@ -7,6 +8,7 @@ declare var $: any;
 })
 export class HeaderComponent implements OnInit, AfterViewInit {
   @ViewChild('headerEl', null) headerElement: ElementRef;
+  search = new FormControl('');
   constructor() { }
 
   ngOnInit(): void {

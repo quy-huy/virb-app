@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import Product from '../../../product'
 import { ProductApiService } from 'app/service/product-api.service';
+import { FormControl } from '@angular/forms';
 declare var $: any;
 @Component({
   selector: 'app-product-list',
@@ -8,6 +8,7 @@ declare var $: any;
   styleUrls: ['./product-list.component.css']
 })
 export class ProductListComponent implements OnInit {
+    filter = new FormControl('');
     products: any[] = [];
   constructor(private productSv: ProductApiService) { }
    

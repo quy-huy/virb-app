@@ -1,0 +1,62 @@
+ .login {
+     padding-bottom: 100px;
+     font-family: Arial, Helvetica, sans-serif !important
+ }
+ 
+ .fixed {
+     background-color: #c43b68 !important
+ }
+ 
+ .h4 {
+     font-weight: 900
+ }
+ 
+ button {
+     border-radius: 0px;
+     width: 100%;
+     height: 40px;
+ }
+ 
+ span {
+     color: white;
+ }
+ 
+ .btn--fb {
+     color: white;
+     background-color: #4267b2 !important
+ }
+ 
+ .btn--gg {
+     color: white;
+     background-color: #e74847 !important;
+ }
+ 
+ .btn--yh {
+     color: white;
+     background-color: #2d1451 !important;
+ }
+ 
+ h2 {
+     font-weight: 900;
+     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
+ }
+ 
+ ul {
+     list-style: none;
+     padding: 0;
+ }
+ 
+ li {
+     padding-left: 1.3em;
+     line-height: 50px;
+     color: grey
+ }
+ 
+ li:before {
+     content: "\f00c";
+     font-family: FontAwesome;
+     display: inline-block;
+     margin-left: -1.3em;
+     color: green;
+     width: 1.3em;
+ }

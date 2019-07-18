@@ -6,17 +6,17 @@
                 <div class="menu__container clearfix">
                     <div class="col-lg-2 col-md-2 col-sm-3 col-xs-5">
                         <div class="logo">
-                            <a href="index.html"><img src="../../../../assets/images/logo/4.png" alt="logo images"></a>
+                            <h1 [routerLink]="[ '' ]">Smartshop.</h1>
                         </div>
                     </div>
                     <div class="col-md-7 col-lg-8 col-sm-5 col-xs-3">
                         <nav class="main__menu__nav hidden-xs hidden-sm">
                             <ul class="main__menu">
                                 <li class="drop"><a href="index.html">Home</a></li>
-                                <li class="drop"><a href="#">women</a>
+                                <li class="drop"><a href="#">product</a>
                                     <ul class="dropdown mega_dropdown">
                                         <!-- Start Single Mega MEnu -->
-                                        <li><a class="mega__title" href="product-grid.html">Shop Pages</a>
+                                        <li><a class="mega__title" href="product-grid.html">Apple</a>
                                             <ul class="mega__item">
                                                 <li><a [routerLink]="[ '/product']">Product Grid</a></li>
                                                 <li><a href="cart.html">cart</a></li>
@@ -26,7 +26,7 @@
                                         </li>
                                         <!-- End Single Mega MEnu -->
                                         <!-- Start Single Mega MEnu -->
-                                        <li><a class="mega__title" href="product-grid.html">Variable Product</a>
+                                        <li><a class="mega__title" href="product-grid.html">Samsung</a>
                                             <ul class="mega__item">
                                                 <li><a href="#">Category</a></li>
                                                 <li><a href="#">My Account</a></li>
@@ -37,7 +37,7 @@
                                         </li>
                                         <!-- End Single Mega MEnu -->
                                         <!-- Start Single Mega MEnu -->
-                                        <li><a class="mega__title" href="product-grid.html">Product Types</a>
+                                        <li><a class="mega__title" href="product-grid.html">Xiaomi</a>
                                             <ul class="mega__item">
                                                 <li><a href="#">Simple Product</a></li>
                                                 <li><a href="#">Variable Product</a></li>
@@ -47,48 +47,6 @@
                                             </ul>
                                         </li>
                                         <!-- End Single Mega MEnu -->
-                                    </ul>
-                                </li>
-                                <li class="drop"><a href="#">men</a>
-                                    <ul class="dropdown mega_dropdown">
-                                        <!-- Start Single Mega MEnu -->
-                                        <li><a class="mega__title" href="product-grid.html">Shop Pages</a>
-                                            <ul class="mega__item">
-                                                <li><a [routerLink]="[ '/product']">Product Grid</a></li>
-                                                <li><a href="cart.html">cart</a></li>
-                                                <li><a href="checkout.html">checkout</a></li>
-                                                <li><a href="wishlist.html">wishlist</a></li>
-                                            </ul>
-                                        </li>
-                                        <!-- End Single Mega MEnu -->
-                                        <!-- Start Single Mega MEnu -->
-                                        <li><a class="mega__title" href="product-grid.html">Variable Product</a>
-                                            <ul class="mega__item">
-                                                <li><a href="#">Category</a></li>
-                                                <li><a href="#">My Account</a></li>
-                                                <li><a href="wishlist.html">Wishlist</a></li>
-                                                <li><a href="cart.html">Shopping Cart</a></li>
-                                                <li><a href="checkout.html">Checkout</a></li>
-                                            </ul>
-                                        </li>
-                                        <!-- End Single Mega MEnu -->
-                                        <!-- Start Single Mega MEnu -->
-                                        <li><a class="mega__title" href="product-grid.html">Product Types</a>
-                                            <ul class="mega__item">
-                                                <li><a href="#">Simple Product</a></li>
-                                                <li><a href="#">Variable Product</a></li>
-                                                <li><a href="#">Grouped Product</a></li>
-                                                <li><a href="#">Downloadable Product</a></li>
-                                                <li><a href="#">Simple Product</a></li>
-                                            </ul>
-                                        </li>
-                                        <!-- End Single Mega MEnu -->
-                                    </ul>
-                                </li>
-                                <li class="drop"><a href="#">Product</a>
-                                    <ul class="dropdown">
-                                        <li><a [routerLink]="[ '/product']">Product Grid</a></li>
-                                        <li><a href="product-details.html">Product Details</a></li>
                                     </ul>
                                 </li>
                                 <li class="drop"><a href="blog.html">blog</a>
@@ -168,7 +126,7 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="search__inner">
-                        <form action="#" method="get">
+                        <form action="#" [formGroup]="search" method="get">
                             <input placeholder="Search here... " type="text">
                             <button type="submit"></button>
                         </form>
@@ -191,11 +149,11 @@
                 <div class="shp__single__product">
                     <div class="shp__pro__thumb">
                         <a href="#">
-                            <img src="../../../../assets/images/cart/1.jpg" alt="product images">
+                            <img src="https://cdn.fptshop.com.vn/Uploads/Originals/2017/12/8/636483223586180190_3.jpg" alt="product images">
                         </a>
                     </div>
                     <div class="shp__pro__details">
-                        <h2><a href="product-details.html">BO&Play Wireless Speaker</a></h2>
+                        <h2><a href="product-details.html">iPhone X 64GB</a></h2>
                         <span class="quantity">QTY: 1</span>
                         <span class="shp__price">$105.00</span>
                     </div>
@@ -206,11 +164,11 @@
                 <div class="shp__single__product">
                     <div class="shp__pro__thumb">
                         <a href="#">
-                            <img src="../../../../assets/images/cart/2.jpg" alt="product images">
+                            <img src="https://cdn.fptshop.com.vn/Uploads/Originals/2019/2/21/636863636051023338_ss-galaxy-s10-plus-den-1.png" alt="product images">
                         </a>
                     </div>
                     <div class="shp__pro__details">
-                        <h2><a href="product-details.html">Brone Candle</a></h2>
+                        <h2><a href="product-details.html">Samsung Galaxy S10+</a></h2>
                         <span class="quantity">QTY: 1</span>
                         <span class="shp__price">$25.00</span>
                     </div>

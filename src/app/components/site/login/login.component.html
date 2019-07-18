@@ -1,0 +1,78 @@
+<!-- Default form login -->
+
+<div class="container login" style="margin-top: 100px">
+    <div class="row">
+        <div class="col-sm-6">
+            <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+
+                <h1>Sign in</h1>
+                <!-- Email -->
+                <input type="email" class="form-control mb-4" placeholder="E-mail" formControlName="email" required>
+                <div *ngIf="email.invalid && (email.dirty || email.touched)" class="error">
+                    <div *ngIf="email.errors">
+                        Username is required.
+                    </div>
+                </div>
+                <!-- Password -->
+                <input type="password" id="defaultLoginFormPassword" class="form-control mb-4" placeholder="Password" formControlName="password">
+                <div *ngIf="password.invalid && (password.dirty || password.touched)" class="error">
+                    <div *ngIf="password.errors">
+                        Password is required.
+                    </div>
+                </div>
+                <div class="d-flex justify-content-start">
+                    <div>
+                        <!-- Remember me -->
+                        <div class="custom-control custom-checkbox">
+                            <input type="checkbox" class="custom-control-input" id="defaultLoginFormRemember">
+                            <label class="custom-control-label" for="defaultLoginFormRemember">Remember me</label>
+                        </div>
+                    </div>
+                    <div style="margin-left: 20px">
+                        <!-- Forgot password -->
+                        <a href="">Forgot password?</a>
+                    </div>
+                </div>
+
+                <!-- Sign in button -->
+                <button class="btn fixed btn-info btn-block my-4" type="submit" [disabled]="!loginForm.valid"><span style="font-weight: 700">SIGN IN  <i class="fa fa-arrow-circle-right"></i></span></button>
+
+
+
+                <!-- Social login -->
+                <p>or you can also sign in with:</p>
+
+                <button type="button" mdbBtn size="lg" class="waves-light btn--fb" mdbWavesEffect><i class="fa fa-facebook-f left"></i>  Facebook</button>
+                <button type="button" mdbBtn size="lg" class="waves-light btn--gg" mdbWavesEffect><i class="fa fa-google-plus left"></i>  Google</button>
+                <button type="button" mdbBtn size="lg" class="waves-light btn--yh" mdbWavesEffect><i class="fa fa-yahoo left"></i>  Yahoo</button>
+            </form>
+            <!-- Default form login -->
+        </div>
+        <div class="col-sm-6">
+            <h2>REGISTER AND JOIN THE ADIDAS CREATORS CLUB</h2>
+            <div class="create--acount">
+                <p>Create an account with adidas:</p>
+                <ul style="margin-top: 20px;" type="">
+                    <li>Earn easy points for exclusive rewards</li>
+
+                    <li>Access the best special offers and promotions</li>
+
+                    <li>Receive invites to exclusive events</li>
+
+                    <li>Get access to limited edition products</li>
+
+                    <li>Level up for a Runtastic Premium subscription</li>
+
+                    <li>Faster checkout with your saved address and payment details</li>
+
+                    <li>Access your complete order history</li>
+
+                    <li>Track your order delivery</li>
+                </ul>
+                <!-- Register -->
+                <button class="btn fixed btn-info btn-block my-4" type="submit" [routerLink]="['/register']"><span style="font-weight: 700">REGISTER NOW  <i class="fa fa-arrow-circle-right"></i></span></button>
+            </div>
+        </div>
+
+    </div>
+</div>
