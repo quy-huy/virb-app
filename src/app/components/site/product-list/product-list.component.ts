@@ -13,7 +13,7 @@ export class ProductListComponent implements OnInit {
   constructor(private productSv: ProductApiService) { }
    
   ngOnInit() {
-      this.getJSON();
+    //   this.getJSON();
     
     $("#slider-range").slider({
         range: true,
@@ -31,14 +31,14 @@ export class ProductListComponent implements OnInit {
 
   }
 
-  getJSON() {
-      this.productSv.getJSON().subscribe(res => {
-          console.log(res);
-      this.products=res;
-      }, errors => {
-          console.log(errors);
+//   getJSON() {
+//       this.productSv.getJSON().subscribe(res => {
+//           console.log(res);
+//       this.products=res;
+//       }, errors => {
+//           console.log(errors);
           
-      })
-  }
+//       })
+//   }
 
 }

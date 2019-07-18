@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
-import { AuthService } from '../../../service/app-api.service';
+import { AppApiService } from '../../../service/app-api.service';
 
 @Component({
   selector: 'app-login',
@@ -19,7 +19,7 @@ export class LoginComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private router: Router,
-    private authService: AuthService
+    private authService: AppApiService
     ) { }
 
   ngOnInit() {
@@ -37,18 +37,19 @@ export class LoginComponent implements OnInit {
   onSubmit() {
     this.submitted = true;
     const data = {
-      // email: this.email.value,
-      // password: this.password.value,
+      email: this.email.value,
+      password: this.password.value,
     };
+    
     this.authService.login(data).subscribe((data) => {
-
-      console.log(data);
-      //  if (this.authService.isLoggedIn) {
-      //     const redirect = this.authService.redirectUrl ? this.authService.redirectUrl : '/admin';
-      //     this.router.navigate([redirect]);
-      //   } else {
-      //     this.loginError = 'Username or password is incorrect.';
-      //   }
+      localStorage.setItem('token', data.token);
+      this.router.navigate(['/']);
+        // if (this.authService.isLoggedIn) {
+        //   const redirect = this.authService.redirectUrl ? this.authService.redirectUrl : '/admin';
+        //   this.router.navigate([redirect]);
+        //   return;
+        // }
+       
       },
       error => this.error = error
     );

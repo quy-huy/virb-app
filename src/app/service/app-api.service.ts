@@ -1,14 +1,13 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
-import { throwError } from 'rxjs';
+import { throwError, Observable } from 'rxjs';
 import { catchError, tap } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
 })
-export class AuthService {
-
-  serverUrl = 'https://camera-lb4-api.herokuapp.com/jobs';
+export class AppApiService {
+  serverUrl = 'https://demo-linhnt.herokuapp.com/api/admins/login';
   errorData: {};
 
   constructor(private http: HttpClient) { }
@@ -22,7 +21,7 @@ export class AuthService {
       catchError(this.handleError)
     );
   }
-
+ 
   isLoggedIn() {
     if (localStorage.getItem('currentUser')) {
       return true;

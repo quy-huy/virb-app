@@ -13,7 +13,6 @@ import { LoginComponent } from './components/site/login/login.component';
 import { RegisterComponent } from './components/site/register/register.component';
 import {ReactiveFormsModule} from '@angular/forms'
 
-
 @NgModule({
   declarations: [
     AppComponent,
