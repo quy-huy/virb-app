@@ -11,13 +11,14 @@ export class ProductApiService {
   errorData: {};
   constructor(private http: HttpClient) { }
   
-  createProduct(data, opts?: any) {
-    return this.http.post(`${this.serverUrl}`, opts)
-    .pipe(
-      tap(res => res),
-      catchError(this.handleError)
-    );
+  
+  public getJSON(opts?: any): Observable<any> {
+    return this.http.get(`${this.serverUrl}`, opts);
   }
+ 
+
+
+
   private handleError(error: HttpErrorResponse) {
     if (error.error instanceof ErrorEvent) {
 

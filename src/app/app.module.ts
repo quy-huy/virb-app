@@ -11,7 +11,8 @@ import { ProductListComponent } from './components/site/product-list/product-lis
 import { HttpClientModule } from '@angular/common/http';
 import { LoginComponent } from './components/site/login/login.component';
 import { RegisterComponent } from './components/site/register/register.component';
-import {ReactiveFormsModule} from '@angular/forms'
+import {ReactiveFormsModule, FormsModule} from '@angular/forms';
+import { ProductDetailComponent } from './components/site/product-detail/product-detail.component'
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import {ReactiveFormsModule} from '@angular/forms'
     HomeComponent,
     ProductListComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    ProductDetailComponent
   ],
   imports: [
     BrowserModule,

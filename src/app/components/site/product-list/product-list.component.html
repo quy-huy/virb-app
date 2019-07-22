@@ -1,5 +1,5 @@
 <!-- Start Bradcaump area -->
-<div class="ht__bradcaump__area" style="background: rgba(0, 0, 0, 0) url(../../../../assets/images/bg/4.jpg) no-repeat scroll center center / cover ;">
+<div class="ht__bradcaump__area" style="background: rgba(0, 0, 0, 0) url(../../../../assets/images/slider/bg/categories.jpg) no-repeat scroll center center / cover ;">
     <div class="ht__bradcaump__wrap">
         <div class="container">
             <div class="row">
@@ -25,12 +25,7 @@
                 <div class="htc__product__rightidebar">
                     <div class="htc__grid__top">
                         <div class="htc__select__option">
-                            <select class="ht__select">
-                                        <option>All</option>
-                                        <option>Apple</option>
-                                        <option>Samsung</option>
-                                        <option>Xiaomi</option>
-                                    </select>
+                            <input class="ht__select" placeholder="Search..." (keyup)="onChange($event)" [formControl]="searchTerm">
                             <select class="ht__select">
                                         <option>Show by</option>
                                         <option>Price $ - $$</option>
@@ -56,7 +51,7 @@
                                     <div class="category">
                                         <div class="ht__cat__thumb">
                                             <a href="product-details.html">
-                                                <img src="{{product.img}}" alt="product images">
+                                                <img src="{{product.image_url}}" alt="product images">
                                             </a>
                                         </div>
                                         <div class="fr__hover__info">
@@ -71,8 +66,8 @@
                                         <div class="fr__product__inner">
                                             <h4><a href="product-details.html">{{product.name}}</a></h4>
                                             <ul class="fr__pro__prize">
-                                                <li class="old__prize">{{product.price}}</li>
-                                                <li>{{product.saleprice}}</li>
+                                                <!-- <li class="old__prize">{{product.price}}</li> -->
+                                                <li>{{product.price}} VND</li>
                                             </ul>
                                         </div>
                                     </div>
@@ -86,13 +81,13 @@
                                         <!-- Start List Product -->
                                         <div class="ht__list__product">
                                             <div class="ht__list__thumb">
-                                                <a href="product-details.html"><img src="{{product.img}}" alt="product images"></a>
+                                                <a href="product-details.html"><img src="{{product.image_url}}" alt="product images"></a>
                                             </div>
                                             <div class="htc__list__details">
                                                 <h2><a href="product-details.html">{{product.name}}</a></h2>
                                                 <ul class="pro__prize">
-                                                    <li class="old__prize">{{product.price}}</li>
-                                                    <li>{{product.saleprice}}</li>
+                                                    <!-- <li class="old__prize">{{product.price}}</li> -->
+                                                    <li>{{product.price}} VND</li>
                                                 </ul>
                                                 <ul class="rating">
                                                     <li><i class="icon-star icons"></i></li>
@@ -101,8 +96,7 @@
                                                     <li class="old"><i class="icon-star icons"></i></li>
                                                     <li class="old"><i class="icon-star icons"></i></li>
                                                 </ul>
-                                                <p>Lorem ipsum dolor sit amet, consectetur adipisLorem ipsum dolor sit amet, consec adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqul Ut enim ad minim veniam, quis nostrud
-                                                    exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                                                <p>{{product.detail}}</p>
                                                 <div class="fr__list__btn">
                                                     <a class="fr__btn" href="cart.html">Add To Cart</a>
                                                 </div>
@@ -158,16 +152,10 @@
                     <div class="htc__category">
                         <h4 class="title__line--4">categories</h4>
                         <ul class="ht__cat__list">
-                            <li><a href="#">Clothing</a></li>
-                            <li><a href="#">Bags</a></li>
-                            <li><a href="#">Shoes</a></li>
-                            <li><a href="#">Jewelry</a></li>
-                            <li><a href="#">Accessories</a></li>
-                            <li><a href="#">Food / Drink Store</a></li>
-                            <li><a href="#">Gift Store</a></li>
-                            <li><a href="#">Accessories</a></li>
-                            <li><a href="#">Watch</a></li>
-                            <li><a href="#">Other</a></li>
+                            <li><a href="#">Apple</a></li>
+                            <li><a href="#">Samsung</a></li>
+                            <li><a href="#">Oppo</a></li>
+
                         </ul>
                     </div>
                     <!-- End Category Area -->
@@ -186,7 +174,7 @@
                     </div>
                     <!-- End Pro Color -->
                     <!-- Start Pro Size -->
-                    <div class="ht__pro__size">
+                    <!-- <div class="ht__pro__size">
                         <h4 class="title__line--4">Size</h4>
                         <ul class="ht__size__list">
                             <li><a href="#">xs</a></li>
@@ -195,7 +183,7 @@
                             <li><a href="#">reld</a></li>
                             <li><a href="#">xl</a></li>
                         </ul>
-                    </div>
+                    </div> -->
                     <!-- End Pro Size -->
                     <!-- Start Tag Area -->
                     <!-- <div class="htc__tag">
@@ -217,9 +205,9 @@
                     <div class="htc__compare__area">
                         <h4 class="title__line--4">compare</h4>
                         <ul class="htc__compare__list">
-                            <li><a href="#">White men’s polo<i class="icon-trash icons"></i></a></li>
-                            <li><a href="#">T-shirt for style girl...<i class="icon-trash icons"></i></a></li>
-                            <li><a href="#">Basic dress for women...<i class="icon-trash icons"></i></a></li>
+                            <li><a href="#">SamSung Galaxy S10<i class="icon-trash icons"></i></a></li>
+                            <li><a href="#">Iphone 7s<i class="icon-trash icons"></i></a></li>
+                            <li><a href="#">Oppo F9<i class="icon-trash icons"></i></a></li>
                         </ul>
                         <ul class="ht__com__btn">
                             <li><a href="#">clear all</a></li>
