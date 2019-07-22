@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ProductApiService } from 'app/service/product-api.service';
-import { FormControl } from '@angular/forms';
+import { FormControl, FormGroup } from '@angular/forms';
 import { stringify } from '@angular/compiler/src/util';
 import { Subject } from 'rxjs';
-import { debounceTime, distinctUntilChanged } from 'rxjs/operators';
+import { debounceTime, distinctUntilChanged, filter } from 'rxjs/operators';
 import { analyzeAndValidateNgModules } from '@angular/compiler';
 declare var $: any;
 @Component({
@@ -12,10 +12,13 @@ declare var $: any;
   styleUrls: ['./product-list.component.css']
 })
 export class ProductListComponent implements OnInit {
-    filter = new FormControl('');
+    filter = new FormGroup({
+      priceFilter: new FormControl('')
+    });
     products: any[] = [];
     searchTerm = new FormControl('');
     inputValue$ = new Subject();
+    priceFilter: string;
 
   constructor(private productSv: ProductApiService) { }
    
@@ -24,7 +27,7 @@ export class ProductListComponent implements OnInit {
 
     this.inputValue$
         .pipe(
-        debounceTime(500),
+        debounceTime(1000),
         distinctUntilChanged(),
         )
         .subscribe((searchTerms) => {
@@ -33,34 +36,44 @@ export class ProductListComponent implements OnInit {
     
     $("#slider-range").slider({
         range: true,
-        min: 1,
-        max: 20,
-        values: [6, 14],
-        slide: function(event, ui) {
-            $("#amount").val( ui.values[0] + "trieu" + " - " + ui.values[1]+ "trieu");
+        min: 1000000,
+        max: 20000000,
+        values: [6000000, 14000000],
+        slide:(event, ui) => {
+            $("#amount").val( ui.values[0]  + " - " + ui.values[1]);
+            this.filter.value.priceFilter = ui.values[0]  + " - " + ui.values[1];
         }
     });
-    $("#amount").val( $("#slider-range").slider("values", 0) + "trieu" +
-        " - " + $("#slider-range").slider("values", 1) + "trieu");
+    $("#amount").val( $("#slider-range").slider("values", 0) +
+        " - " + $("#slider-range").slider("values", 1  ) );
+  }
 
 
-
+  filterPrice() {
+    const priceRange = this.filter.value.priceFilter.split(' - ');
+    if (priceRange.length >= 2 ) {
+      const opts = {
+        price_gte: priceRange[1],
+        price_lte: priceRange[0]
+      }
+      this.productSv.getJSON(opts).subscribe(res => {
+        console.log(res.data);
+        this.products = res.data;
+      }, errors => {
+        console.log(errors);
+        
+      });
+    }
+    
   }
 
   onChange(event) {
     this.inputValue$.next(event.target.value);
-      
   }
 
-  // createProduct() {
-  //     this.productSv.createProduct().subscribe(res => {
-  //         console.log(res);
-  //     this.products=res;
-  //     }, errors => {
-  //         console.log(errors);
-          
-  //     })
-  // }
+
+
+
 
   getJSON() {
     const opts = {
@@ -69,13 +82,10 @@ export class ProductListComponent implements OnInit {
       }
     }
     this.productSv.getJSON(opts).subscribe(res => {
-        console.log(res.data);
+    console.log(res.data);
     this.products=res.data
-
-    
     }, errors => {
         console.log(errors);
-
     })
 }
 

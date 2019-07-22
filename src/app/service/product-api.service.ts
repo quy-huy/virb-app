@@ -13,12 +13,11 @@ export class ProductApiService {
   
   
   public getJSON(opts?: any): Observable<any> {
-    return this.http.get(`${this.serverUrl}`, opts);
+    return this.http.get(`${this.serverUrl}`, {
+      params: opts
+    });
   }
  
-
-
-
   private handleError(error: HttpErrorResponse) {
     if (error.error instanceof ErrorEvent) {
 
