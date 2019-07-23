@@ -1609,6 +1609,10 @@
     margin-left: 20px;
 }
 
+.ht__select--small {
+    width: 50px
+}
+
 .view__mode li.active a i {
     color: #c43b68;
 }

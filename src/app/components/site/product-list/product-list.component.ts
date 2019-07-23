@@ -21,9 +21,11 @@ export class ProductListComponent implements OnInit {
     })
     products: any[] = [];
     searchTerm = new FormControl('');
+    showTerm = new FormControl('12');
     inputValue$ = new Subject();
     priceFilter: any;
     brandFilter: any;
+    inputNum$ = new Subject();
 
   constructor(private productSv: ProductApiService) { }
    
@@ -32,15 +34,29 @@ export class ProductListComponent implements OnInit {
 
     
 
-    this.inputValue$
+    this.inputNum$
         .pipe(
         debounceTime(1000),
         distinctUntilChanged(),
         )
-        .subscribe((searchTerm) => {
+        .subscribe((showTerm) => {
           // console.log(searchTerm, 'inputValue$')
+          if(!!showTerm){
             this.getJSON();
+          }
         }); 
+        this.inputValue$
+        .pipe(
+        debounceTime(1000),
+        distinctUntilChanged(),
+        )
+        .subscribe((showTerm) => {
+          // console.log(searchTerm, 'inputValue$')
+         
+            this.getJSON();
+        
+        }); 
+       
     
     $("#slider-range").slider({
         range: true,
@@ -61,13 +77,18 @@ export class ProductListComponent implements OnInit {
     this.inputValue$.next(event.target.value);
 
   }
+  onCreate(event) {
+    this.inputNum$.next(event.target.value);
+  }
 
 
   getJSON() {
     const opts = {
         name: this.searchTerm.value,
+        per_page: this.showTerm.value,
         ...this.priceFilter,
-        ...this.brandFilter
+        ...this.brandFilter,
+
     }
     // console.log(opts, 'getJSON')
     this.productSv.getJSON(opts).subscribe(res => {
