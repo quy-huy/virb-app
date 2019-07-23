@@ -1609,10 +1609,6 @@
     margin-left: 20px;
 }
 
-.ht__select--small {
-    width: 50px
-}
-
 .view__mode li.active a i {
     color: #c43b68;
 }
@@ -2051,6 +2047,10 @@ select.ht__select {
     background-size: 14px;
     height: 35px;
     color: #3f3f3f;
+}
+
+.ht__select--small {
+    width: 50px
 }
 
 

@@ -5,6 +5,7 @@ import { stringify } from '@angular/compiler/src/util';
 import { Subject } from 'rxjs';
 import { debounceTime, distinctUntilChanged, filter } from 'rxjs/operators';
 import { analyzeAndValidateNgModules } from '@angular/compiler';
+import { sortOptions } from 'app/shared/constant/sort-option';
 declare var $: any;
 @Component({
   selector: 'app-product-list',
@@ -22,17 +23,33 @@ export class ProductListComponent implements OnInit {
     products: any[] = [];
     searchTerm = new FormControl('');
     showTerm = new FormControl('12');
+    sortTerm= new FormControl('');
     inputValue$ = new Subject();
     priceFilter: any;
     brandFilter: any;
     inputNum$ = new Subject();
+    changeValue$ = new Subject();
+
+    
+    sortOptions = sortOptions;
 
   constructor(private productSv: ProductApiService) { }
    
   ngOnInit() {
     this.getJSON();
 
-    
+    $("#slider-range").slider({
+      range: true,
+      min: 1000000,
+      max: 20000000,
+      values: [6000000, 14000000],
+      slide:(event, ui) => {
+          $("#amount").val( ui.values[0]  + " - " + ui.values[1]);
+          this.filter.value.priceFilter = ui.values[0]  + " - " + ui.values[1];
+      }
+    });
+    $("#amount").val( $("#slider-range").slider("values", 0) +
+      " - " + $("#slider-range").slider("values", 1  ) );
 
     this.inputNum$
         .pipe(
@@ -40,40 +57,30 @@ export class ProductListComponent implements OnInit {
         distinctUntilChanged(),
         )
         .subscribe((showTerm) => {
-          // console.log(searchTerm, 'inputValue$')
           if(!!showTerm){
             this.getJSON();
           }
-        }); 
-        this.inputValue$
+        });
+    this.inputValue$
         .pipe(
         debounceTime(1000),
         distinctUntilChanged(),
         )
         .subscribe((showTerm) => {
-          // console.log(searchTerm, 'inputValue$')
-         
             this.getJSON();
-        
-        }); 
-       
-    
-    $("#slider-range").slider({
-        range: true,
-        min: 1000000,
-        max: 20000000,
-        values: [6000000, 14000000],
-        slide:(event, ui) => {
-            $("#amount").val( ui.values[0]  + " - " + ui.values[1]);
-            this.filter.value.priceFilter = ui.values[0]  + " - " + ui.values[1];
-        }
-    });
-    $("#amount").val( $("#slider-range").slider("values", 0) +
-        " - " + $("#slider-range").slider("values", 1  ) );
+        });
+    this.changeValue$
+        .pipe(
+          distinctUntilChanged(),
+          )
+          .subscribe((sortTerm) => {
+              this.getJSON();
+          });
   }
 
+  
+
   onChange(event) {
-    // console.log(event, 'onChange')
     this.inputValue$.next(event.target.value);
 
   }
@@ -88,9 +95,8 @@ export class ProductListComponent implements OnInit {
         per_page: this.showTerm.value,
         ...this.priceFilter,
         ...this.brandFilter,
-
+        order: this.sortTerm.value,
     }
-    // console.log(opts, 'getJSON')
     this.productSv.getJSON(opts).subscribe(res => {
     console.log(res.data);
     this.products=res.data
@@ -111,7 +117,7 @@ export class ProductListComponent implements OnInit {
   }
 
   filterBrand(brandID = this.brand.value) {
-    if(brandID == 1) {
+   if(brandID == 1) {
       this.brandFilter = {category_id: brandID}
       this.getJSON();
     }
@@ -125,6 +131,9 @@ export class ProductListComponent implements OnInit {
     }
   }
 
+  onChangeSort(event) {
+    this.changeValue$.next(event.target.value);
+  }
  
 
 

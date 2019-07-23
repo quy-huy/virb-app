@@ -31,13 +31,13 @@
                         <div class="product__big__images">
                             <div class="portfolio-full-image tab-content">
                                 <div role="tabpanel" class="tab-pane fade in active" id="img-tab-1">
-                                    <img src="../../../../assets/images/product-2/big-img/1.jpg" alt="full-image">
+                                    <!-- <img src="{{product.image_url}}" alt="full-image"> -->
                                 </div>
                                 <div role="tabpanel" class="tab-pane fade" id="img-tab-2">
-                                    <img src="../../../../assets/images/product-2/big-img/2.jpg" alt="full-image">
+                                    <!-- <img src="{{product.image_url}}" alt="full-image"> -->
                                 </div>
                                 <div role="tabpanel" class="tab-pane fade" id="img-tab-3">
-                                    <img src="../../../../assets/images/product-2/big-img/3.jpg" alt="full-image">
+                                    <!-- <img src="{{product.image_url}}" alt="full-image"> -->
                                 </div>
                             </div>
                         </div>
@@ -46,17 +46,17 @@
                         <ul class="product__small__images" role="tablist">
                             <li role="presentation" class="pot-small-img active">
                                 <a href="#img-tab-1" role="tab" data-toggle="tab">
-                                    <img src="../../../../assets/images/product-2/sm-img-3/3.jpg" alt="small-image">
+                                    <!-- <img src="{{product.image_url}}" alt="small-image"> -->
                                 </a>
                             </li>
                             <li role="presentation" class="pot-small-img">
                                 <a href="#img-tab-2" role="tab" data-toggle="tab">
-                                    <img src="../../../../assets/images/product-2/sm-img-3/1.jpg" alt="small-image">
+                                    <!-- <img src="{{product.image_url}}" alt="small-image"> -->
                                 </a>
                             </li>
                             <li role="presentation" class="pot-small-img">
                                 <a href="#img-tab-3" role="tab" data-toggle="tab">
-                                    <img src="../../../../assets/images/product-2/sm-img-3/2.jpg" alt="small-image">
+                                    <!-- <img src="{{product.image_url}}" alt="small-image"> -->
                                 </a>
                             </li>
                         </ul>
@@ -65,8 +65,8 @@
                 </div>
                 <div class="col-md-7 col-lg-7 col-sm-12 col-xs-12 smt-40 xmt-40">
                     <div class="ht__product__dtl">
-                        <h2>jean shirt to sassy girl</h2>
-                        <h6>Model: <span>MNG001</span></h6>
+                        <!-- <h2>{{product.name}}</h2> -->
+                        <h6>Model: <span>{{category_id}}</span></h6>
                         <ul class="rating">
                             <li><i class="icon-star icons"></i></li>
                             <li><i class="icon-star icons"></i></li>
@@ -75,11 +75,9 @@
                             <li class="old"><i class="icon-star icons"></i></li>
                         </ul>
                         <ul class="pro__prize">
-                            <li class="old__prize">$82.5</li>
-                            <li>$75.2</li>
+                            <!-- <li>{{product.price}}</li> -->
                         </ul>
-                        <p class="pro__info">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis
-                            nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan</p>
+                        <!-- <p class="pro__info">{{product.detail}}</p> -->
                         <div class="ht__pro__desc">
                             <div class="sin__desc">
                                 <p><span>Availability:</span> In Stock</p>
@@ -87,64 +85,45 @@
                             <div class="sin__desc align--left">
                                 <p><span>color:</span></p>
                                 <ul class="pro__color">
-                                    <li class="red"><a href="#">red</a></li>
-                                    <li class="green"><a href="#">green</a></li>
-                                    <li class="balck"><a href="#">balck</a></li>
+                                    <li class="red"><a href="javascript:void(0)">red</a></li>
+                                    <li class="green"><a href="javascript:void(0)">green</a></li>
+                                    <li class="balck"><a href="javascript:void(0)">balck</a></li>
                                 </ul>
                                 <div class="pro__more__btn">
-                                    <a href="#">more</a>
+                                    <a href="javascript:void(0)">more</a>
                                 </div>
-                            </div>
-                            <div class="sin__desc align--left">
-                                <p><span>size</span></p>
-                                <select class="select__size">
-                                            <option>s</option>
-                                            <option>l</option>
-                                            <option>xs</option>
-                                            <option>xl</option>
-                                            <option>m</option>
-                                            <option>s</option>
-                                        </select>
                             </div>
                             <div class="sin__desc align--left">
                                 <p><span>Categories:</span></p>
                                 <ul class="pro__cat__list">
-                                    <li><a href="#">Fashion,</a></li>
-                                    <li><a href="#">Accessories,</a></li>
-                                    <li><a href="#">Women,</a></li>
-                                    <li><a href="#">Men,</a></li>
-                                    <li><a href="#">Kid,</a></li>
-                                    <li><a href="#">Mobile,</a></li>
-                                    <li><a href="#">Computer,</a></li>
-                                    <li><a href="#">Hair,</a></li>
-                                    <li><a href="#">Clothing,</a></li>
+                                    <li><a href="javascript:void(0)">Smart Phone,</a></li>
+                                    <li><a href="javascript:void(0)">Apple,</a></li>
+                                    <li><a href="javascript:void(0)">Samsung,</a></li>
+                                    <li><a href="javascript:void(0)">Oppo</a></li>
                                 </ul>
                             </div>
                             <div class="sin__desc align--left">
                                 <p><span>Product tags:</span></p>
                                 <ul class="pro__cat__list">
-                                    <li><a href="#">Fashion,</a></li>
-                                    <li><a href="#">Accessories,</a></li>
-                                    <li><a href="#">Women,</a></li>
-                                    <li><a href="#">Men,</a></li>
-                                    <li><a href="#">Kid,</a></li>
+                                    <li><a href="javascript:void(0)">Smart phone,</a></li>
+                                    <!-- <li><a href="javascript:void(0)">{{product.name}}</a></li> -->
                                 </ul>
                             </div>
 
                             <div class="sin__desc product__share__link">
                                 <p><span>Share this:</span></p>
                                 <ul class="pro__share">
-                                    <li><a href="#" target="_blank"><i class="icon-social-twitter icons"></i></a></li>
+                                    <li><a href="javascript:void(0)" target="_blank"><i class="icon-social-twitter icons"></i></a></li>
 
-                                    <li><a href="#" target="_blank"><i class="icon-social-instagram icons"></i></a></li>
+                                    <li><a href="javascript:void(0)" target="_blank"><i class="icon-social-instagram icons"></i></a></li>
 
                                     <li><a href="https://www.facebook.com/Furny/?ref=bookmarks" target="_blank"><i class="icon-social-facebook icons"></i></a></li>
 
-                                    <li><a href="#" target="_blank"><i class="icon-social-google icons"></i></a></li>
+                                    <li><a href="javascript:void(0)" target="_blank"><i class="icon-social-google icons"></i></a></li>
 
-                                    <li><a href="#" target="_blank"><i class="icon-social-linkedin icons"></i></a></li>
+                                    <li><a href="javascript:void(0)" target="_blank"><i class="icon-social-linkedin icons"></i></a></li>
 
-                                    <li><a href="#" target="_blank"><i class="icon-social-pinterest icons"></i></a></li>
+                                    <li><a href="javascript:void(0)" target="_blank"><i class="icon-social-pinterest icons"></i></a></li>
                                 </ul>
                             </div>
                         </div>
@@ -266,7 +245,7 @@
 
                                 <li><a href="cart.html"><i class="icon-handbag icons"></i></a></li>
 
-                                <li><a href="#"><i class="icon-shuffle icons"></i></a></li>
+                                <li><a href="javascript:void(0)"><i class="icon-shuffle icons"></i></a></li>
                             </ul>
                         </div>
                         <div class="fr__product__inner">
@@ -293,7 +272,7 @@
 
                                 <li><a href="cart.html"><i class="icon-handbag icons"></i></a></li>
 
-                                <li><a href="#"><i class="icon-shuffle icons"></i></a></li>
+                                <li><a href="javascript:void(0)"><i class="icon-shuffle icons"></i></a></li>
                             </ul>
                         </div>
                         <div class="fr__product__inner">
@@ -320,7 +299,7 @@
 
                                 <li><a href="cart.html"><i class="icon-handbag icons"></i></a></li>
 
-                                <li><a href="#"><i class="icon-shuffle icons"></i></a></li>
+                                <li><a href="javascript:void(0)"><i class="icon-shuffle icons"></i></a></li>
                             </ul>
                         </div>
                         <div class="fr__product__inner">
@@ -347,7 +326,7 @@
 
                                 <li><a href="cart.html"><i class="icon-handbag icons"></i></a></li>
 
-                                <li><a href="#"><i class="icon-shuffle icons"></i></a></li>
+                                <li><a href="javascript:void(0)"><i class="icon-shuffle icons"></i></a></li>
                             </ul>
                         </div>
                         <div class="fr__product__inner">
@@ -373,28 +352,28 @@
                 <div class="ht__brand__inner">
                     <ul class="brand__list owl-carousel clearfix">
                         <li>
-                            <a href="#"><img src="../../../../assets/images/brand/1.png" alt="brand images"></a>
+                            <a href="javascript:void(0)"><img src="../../../../assets/images/brand/1.png" alt="brand images"></a>
                         </li>
                         <li>
-                            <a href="#"><img src="../../../../assets/images/brand/2.png" alt="brand images"></a>
+                            <a href="javascript:void(0)"><img src="../../../../assets/images/brand/2.png" alt="brand images"></a>
                         </li>
                         <li>
-                            <a href="#"><img src="../../../../assets/images/brand/3.png" alt="brand images"></a>
+                            <a href="javascript:void(0)"><img src="../../../../assets/images/brand/3.png" alt="brand images"></a>
                         </li>
                         <li>
-                            <a href="#"><img src="../../../../assets/images/brand/4.png" alt="brand images"></a>
+                            <a href="javascript:void(0)"><img src="../../../../assets/images/brand/4.png" alt="brand images"></a>
                         </li>
                         <li>
-                            <a href="#"><img src="../../../../assets/images/brand/5.png" alt="brand images"></a>
+                            <a href="javascript:void(0)"><img src="../../../../assets/images/brand/5.png" alt="brand images"></a>
                         </li>
                         <li>
-                            <a href="#"><img src="../../../../assets/images/brand/5.png" alt="brand images"></a>
+                            <a href="javascript:void(0)"><img src="../../../../assets/images/brand/5.png" alt="brand images"></a>
                         </li>
                         <li>
-                            <a href="#"><img src="../../../../assets/images/brand/1.png" alt="brand images"></a>
+                            <a href="javascript:void(0)"><img src="../../../../assets/images/brand/1.png" alt="brand images"></a>
                         </li>
                         <li>
-                            <a href="#"><img src="../../../../assets/images/brand/2.png" alt="brand images"></a>
+                            <a href="javascript:void(0)"><img src="../../../../assets/images/brand/2.png" alt="brand images"></a>
                         </li>
                     </ul>
                 </div>
