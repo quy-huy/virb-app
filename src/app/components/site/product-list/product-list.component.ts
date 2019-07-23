@@ -18,19 +18,22 @@ export class ProductListComponent implements OnInit {
     products: any[] = [];
     searchTerm = new FormControl('');
     inputValue$ = new Subject();
-    priceFilter: string;
+    priceFilter: any;
 
   constructor(private productSv: ProductApiService) { }
    
   ngOnInit() {
     this.getJSON();
 
+    
+
     this.inputValue$
         .pipe(
         debounceTime(1000),
         distinctUntilChanged(),
         )
-        .subscribe((searchTerms) => {
+        .subscribe((searchTerm) => {
+          // console.log(searchTerm, 'inputValue$')
             this.getJSON();
         }); 
     
@@ -48,39 +51,19 @@ export class ProductListComponent implements OnInit {
         " - " + $("#slider-range").slider("values", 1  ) );
   }
 
-
-  filterPrice() {
-    const priceRange = this.filter.value.priceFilter.split(' - ');
-    if (priceRange.length >= 2 ) {
-      const opts = {
-        price_gte: priceRange[1],
-        price_lte: priceRange[0]
-      }
-      this.productSv.getJSON(opts).subscribe(res => {
-        console.log(res.data);
-        this.products = res.data;
-      }, errors => {
-        console.log(errors);
-        
-      });
-    }
-    
-  }
-
   onChange(event) {
+    // console.log(event, 'onChange')
     this.inputValue$.next(event.target.value);
+
   }
-
-
-
 
 
   getJSON() {
     const opts = {
-      params: {
         name: this.searchTerm.value,
-      }
+        ...this.priceFilter,
     }
+    // console.log(opts, 'getJSON')
     this.productSv.getJSON(opts).subscribe(res => {
     console.log(res.data);
     this.products=res.data
@@ -88,5 +71,24 @@ export class ProductListComponent implements OnInit {
         console.log(errors);
     })
 }
+
+  filterPrice() {
+    const priceRange = this.filter.value.priceFilter.split(' - ');
+    if (priceRange.length >= 2 ) {
+      this.priceFilter = {
+        price_lte: priceRange[1],
+        price_gte: priceRange[0]
+      }
+      this.getJSON();
+    }
+  }
+
+ 
+
+
+
+
+
+
 
 }
