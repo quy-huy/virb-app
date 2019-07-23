@@ -15,10 +15,15 @@ export class ProductListComponent implements OnInit {
     filter = new FormGroup({
       priceFilter: new FormControl('')
     });
+
+    brand = new FormGroup({
+    
+    })
     products: any[] = [];
     searchTerm = new FormControl('');
     inputValue$ = new Subject();
     priceFilter: any;
+    brandFilter: any;
 
   constructor(private productSv: ProductApiService) { }
    
@@ -62,6 +67,7 @@ export class ProductListComponent implements OnInit {
     const opts = {
         name: this.searchTerm.value,
         ...this.priceFilter,
+        ...this.brandFilter
     }
     // console.log(opts, 'getJSON')
     this.productSv.getJSON(opts).subscribe(res => {
@@ -79,6 +85,21 @@ export class ProductListComponent implements OnInit {
         price_lte: priceRange[1],
         price_gte: priceRange[0]
       }
+      this.getJSON();
+    }
+  }
+
+  filterBrand(brandID = this.brand.value) {
+    if(brandID == 1) {
+      this.brandFilter = {category_id: brandID}
+      this.getJSON();
+    }
+    else if(brandID == 2) {
+      this.brandFilter = {category_id: brandID}
+      this.getJSON();
+    }
+    else if(brandID == 3) {
+      this.brandFilter = {category_id: brandID}
       this.getJSON();
     }
   }
